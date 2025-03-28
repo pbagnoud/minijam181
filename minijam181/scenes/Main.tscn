@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://ctfyiq4byuseh"]
+[gd_scene load_steps=9 format=4 uid="uid://ctfyiq4byuseh"]
 
 [ext_resource type="Script" uid="uid://cyhx7ri28jwbq" path="res://scripts/main.gd" id="1_elqb8"]
 [ext_resource type="Texture2D" uid="uid://c0w6qt1sbdaxy" path="res://assets/Map assets/path.png" id="2_0bbpv"]
 [ext_resource type="Texture2D" uid="uid://cvcgmfk8pha3a" path="res://assets/Map assets/wall.png" id="3_rarhs"]
 [ext_resource type="PackedScene" uid="uid://dema5gfnj8ak7" path="res://scenes/Enemy.tscn" id="4_rarhs"]
 [ext_resource type="PackedScene" uid="uid://bntvnfqnukc0h" path="res://scenes/Player.tscn" id="5_vcsgt"]
-[ext_resource type="PackedScene" uid="uid://uq1dwtg35l21" path="res://scenes/Goal.tscn" id="6_c01mt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0bbpv"]
 texture = ExtResource("2_0bbpv")
@@ -37,8 +36,17 @@ position = Vector2(802, 427)
 [node name="Player" parent="." instance=ExtResource("5_vcsgt")]
 position = Vector2(65, 512)
 
-[node name="Goal" parent="." instance=ExtResource("6_c01mt")]
+[node name="Goal" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 position = Vector2(1027, 39)
+script = null
 
 [connection signal="hit" from="Enemy" to="." method="_on_enemy_hit"]
-[connection signal="goal" from="Goal" to="." method="_on_goal_goal"]
