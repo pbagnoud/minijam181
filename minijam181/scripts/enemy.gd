@@ -15,3 +15,4 @@ func _on_enemy_detection_zone_body_entered(body: Node2D) -> void:
 func _on_vision_cone_area_2_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") :
 		hit.emit()
+		print("HIT")

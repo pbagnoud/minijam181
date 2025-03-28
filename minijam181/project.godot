@@ -18,3 +18,7 @@ config/icon="res://assets/icon.svg"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/vision_cone_2d/plugin.cfg")
+
+[global_group]
+
+Player=""
