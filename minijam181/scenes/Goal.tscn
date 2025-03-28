@@ -1,6 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://uq1dwtg35l21"]
+[gd_scene load_steps=5 format=3 uid="uid://uq1dwtg35l21"]
 
 [ext_resource type="Script" uid="uid://65kfcwsbi6eq" path="res://scripts/but.gd" id="1_grq7m"]
+[ext_resource type="Texture2D" uid="uid://co65d4rs7pxl2" path="res://assets/goal_placeholder.png" id="2_sos67"]
 
-[node name="Goal" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3id6j"]
+size = Vector2(46, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o27dl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sos67")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Goal" type="Area2D"]
 script = ExtResource("1_grq7m")
+
+[node name="GoalCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -1.5)
+shape = SubResource("RectangleShape2D_3id6j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o27dl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
