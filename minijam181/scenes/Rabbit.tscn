@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://c4nic6eaf3j7e"]
+[gd_scene load_steps=2 format=3 uid="uid://c4nic6eaf3j7e"]
+
+[ext_resource type="Script" uid="uid://cy1b147eglx2n" path="res://scripts/rabbit.gd" id="1_ckagh"]
 
 [node name="Rabbit" type="Node2D"]
+script = ExtResource("1_ckagh")
