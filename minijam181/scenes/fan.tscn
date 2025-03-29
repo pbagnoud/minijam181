@@ -1,17 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://dadex883i0fvq"]
+[gd_scene load_steps=4 format=3 uid="uid://dlovau8cwlqb1"]
 
 [ext_resource type="Script" uid="uid://iiwdv43ys6ig" path="res://scripts/fan.gd" id="1_ib1wi"]
-[ext_resource type="Texture2D" uid="uid://dgpkmjknmy4h6" path="res://assets/icon.svg" id="2_h3fxe"]
+[ext_resource type="Texture2D" uid="uid://ds7d5lyencg44" path="res://assets/button_unpressed_placeholder.png" id="2_ib1wi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05mpp"]
-size = Vector2(124, 122)
+size = Vector2(62, 49)
 
-[node name="Node2D" type="RigidBody2D"]
+[node name="Node2D" type="StaticBody2D"]
 script = ExtResource("1_ib1wi")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_h3fxe")
+[node name="FanSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_ib1wi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -2)
+[node name="FanCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_05mpp")
+
+[node name="PushArea" type="Area2D" parent="."]
+
+[node name="PushAreaCollisionPolygon" type="CollisionPolygon2D" parent="PushArea"]
+polygon = PackedVector2Array(32, 0, 32, 140, -32, 140, -31.975, 0)
+
+[connection signal="body_entered" from="PushArea" to="." method="_on_push_area_body_entered"]
