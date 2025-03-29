@@ -1,8 +1,10 @@
 extends Node2D
 
+@onready var end_screen: ColorRect = $EndScreen
 
 func _on_goal_goal() -> void:
 	print("FINI")
+	end_screen.visible = true
 	# Terminer la scene et passer au niveau suivant
 
 

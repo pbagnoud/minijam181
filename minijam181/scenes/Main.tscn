@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://ctfyiq4byuseh"]
+[gd_scene load_steps=15 format=4 uid="uid://ctfyiq4byuseh"]
 
 [ext_resource type="Script" uid="uid://cyhx7ri28jwbq" path="res://scripts/main.gd" id="1_elqb8"]
 [ext_resource type="Texture2D" uid="uid://c0w6qt1sbdaxy" path="res://assets/Map assets/path.png" id="2_0bbpv"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cvcgmfk8pha3a" path="res://assets/Map assets/wall.png" id="3_rarhs"]
 [ext_resource type="PackedScene" uid="uid://dema5gfnj8ak7" path="res://scenes/Enemy.tscn" id="4_rarhs"]
 [ext_resource type="PackedScene" uid="uid://bntvnfqnukc0h" path="res://scenes/Player.tscn" id="5_vcsgt"]
+[ext_resource type="PackedScene" uid="uid://uq1dwtg35l21" path="res://scenes/Goal.tscn" id="6_c01mt"]
 [ext_resource type="PackedScene" uid="uid://c4nic6eaf3j7e" path="res://scenes/Rabbit.tscn" id="7_nxtc6"]
+[ext_resource type="Theme" uid="uid://cimqaqw5ekmms" path="res://assets/Themes/Start_Menu.tres" id="8_q8u5g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nxtc6"]
 texture = ExtResource("2_c01mt")
@@ -34,6 +36,9 @@ sources/3 = SubResource("TileSetAtlasSource_0bbpv")
 sources/4 = SubResource("TileSetAtlasSource_rarhs")
 sources/0 = SubResource("TileSetAtlasSource_nxtc6")
 
+[sub_resource type="Theme" id="Theme_nxtc6"]
+default_font_size = 50
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_elqb8")
 
@@ -52,4 +57,32 @@ position = Vector2(36, 543)
 [node name="Rabbit" parent="." instance=ExtResource("7_nxtc6")]
 position = Vector2(480, 413)
 
+[node name="EndScreen" type="ColorRect" parent="."]
+visible = false
+offset_right = 1152.0
+offset_bottom = 649.0
+color = Color(0.500391, 0.322749, 0.103923, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="EndScreen"]
+layout_mode = 0
+offset_left = 395.0
+offset_top = 251.0
+offset_right = 739.0
+offset_bottom = 325.0
+theme = SubResource("Theme_nxtc6")
+text = "Well Done ! "
+
+[node name="Button" type="Button" parent="EndScreen"]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 369.0
+offset_right = 784.0
+offset_bottom = 446.0
+theme = ExtResource("8_q8u5g")
+text = "Go to the next level"
+
+[node name="Goal" parent="." instance=ExtResource("6_c01mt")]
+position = Vector2(1061, 161)
+
 [connection signal="hit" from="Enemy" to="." method="_on_enemy_hit"]
+[connection signal="goal" from="Goal" to="." method="_on_goal_goal"]

@@ -1,9 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqfkpajbcee7v"]
 
 [ext_resource type="Script" uid="uid://bi8iri4tgm8hk" path="res://scripts/start_menu.gd" id="1_jufen"]
-
-[sub_resource type="Theme" id="Theme_jufen"]
-default_font_size = 50
+[ext_resource type="Theme" uid="uid://cimqaqw5ekmms" path="res://assets/Themes/Start_Menu.tres" id="2_f82dj"]
 
 [sub_resource type="Theme" id="Theme_f82dj"]
 default_font_size = 60
@@ -16,7 +14,7 @@ offset_left = 515.0
 offset_top = 332.0
 offset_right = 561.0
 offset_bottom = 363.0
-theme = SubResource("Theme_jufen")
+theme = ExtResource("2_f82dj")
 text = "Start"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
