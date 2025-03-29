@@ -49,4 +49,15 @@ func add_follower(type):
 	print(rabbits)
 
 func pushed(direction):
-	pass
+	player.position += direction * tile_size * 4
+	rabbits[0][2] = player.position
+
+func switch():
+	var last_rabbit = rabbits[-1]
+	var first_rabbit = rabbits[0]
+	rabbits[0][1] = last_rabbit[1]
+	rabbits[0][2] = last_rabbit[2]
+	rabbits[-1][1] = first_rabbit[1]
+	rabbits[-1][2] = last_rabbit[2]
+	
+	
