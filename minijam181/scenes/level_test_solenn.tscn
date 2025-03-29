@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://brngbwb0t7or"]
+[gd_scene load_steps=13 format=4 uid="uid://brngbwb0t7or"]
 
 [ext_resource type="Script" uid="uid://pfrlbeusver1" path="res://scripts/level_test_solenn.gd" id="1_47hsf"]
 [ext_resource type="Texture2D" uid="uid://c0w6qt1sbdaxy" path="res://assets/Map assets/path.png" id="1_ci2w0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bntvnfqnukc0h" path="res://scenes/Player.tscn" id="3_0jsj2"]
 [ext_resource type="PackedScene" uid="uid://uq1dwtg35l21" path="res://scenes/Goal.tscn" id="4_47hsf"]
 [ext_resource type="PackedScene" uid="uid://dema5gfnj8ak7" path="res://scenes/Enemy.tscn" id="5_n6awe"]
+[ext_resource type="PackedScene" uid="uid://cc6gxrptg61ka" path="res://scenes/Button.tscn" id="7_n6awe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ypx6g"]
 texture = ExtResource("1_ci2w0")
@@ -20,9 +21,14 @@ texture = ExtResource("2_55fdx")
 
 [sub_resource type="TileSet" id="TileSet_47hsf"]
 tile_size = Vector2i(64, 64)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
 sources/0 = SubResource("TileSetAtlasSource_ypx6g")
 sources/1 = SubResource("TileSetAtlasSource_0jsj2")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n6awe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bd0s0"]
+size = Vector2(60, 21)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_47hsf")
@@ -31,24 +37,60 @@ script = ExtResource("1_47hsf")
 tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAcAAQAAAAAAAAAAAAgAAQAAAAAAAAAAAAkAAQAAAAAAAAABAAkAAQAAAAAAAAACAAkAAQAAAAAAAAADAAkAAQAAAAAAAAAEAAkAAQAAAAAAAAAFAAkAAQAAAAAAAAAGAAkAAQAAAAAAAAAHAAkAAQAAAAAAAAAIAAkAAQAAAAAAAAAJAAkAAQAAAAAAAAAKAAkAAQAAAAAAAAALAAkAAQAAAAAAAAAMAAkAAQAAAAAAAAANAAkAAQAAAAAAAAAOAAkAAQAAAAAAAAAPAAkAAQAAAAAAAAAQAAkAAQAAAAAAAAARAAkAAQAAAAAAAAARAAgAAQAAAAAAAAARAAcAAQAAAAAAAAARAAYAAQAAAAAAAAARAAUAAQAAAAAAAAARAAQAAQAAAAAAAAARAAMAAQAAAAAAAAARAAIAAQAAAAAAAAARAAEAAQAAAAAAAAARAAAAAQAAAAAAAAAQAAAAAQAAAAAAAAAPAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAANAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAALAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAADAAAAAQAAAAAAAAACAAAAAQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAABAAYAAAAAAAAAAAABAAcAAAAAAAAAAAABAAgAAAAAAAAAAAACAAgAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAAgAAQAAAAAAAAAHAAgAAQAAAAAAAAAIAAgAAQAAAAAAAAAJAAgAAQAAAAAAAAAKAAgAAQAAAAAAAAALAAgAAQAAAAAAAAAMAAgAAQAAAAAAAAANAAgAAAAAAAAAAAAOAAgAAAAAAAAAAAAPAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAQAAcAAAAAAAAAAAAQAAYAAAAAAAAAAAAQAAUAAAAAAAAAAAAQAAQAAAAAAAAAAAAQAAMAAAAAAAAAAAAQAAIAAAAAAAAAAAAQAAEAAAAAAAAAAAAPAAEAAAAAAAAAAAAOAAEAAAAAAAAAAAANAAEAAAAAAAAAAAAMAAEAAQAAAAAAAAALAAEAAAAAAAAAAAAKAAEAAQAAAAAAAAAJAAEAAAAAAAAAAAAIAAEAAQAAAAAAAAAHAAEAAAAAAAAAAAAGAAEAAQAAAAAAAAAFAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAADAAEAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAGAAIAAQAAAAAAAAAFAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAHAAIAAAAAAAAAAAAIAAIAAQAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAHAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAJAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAALAAMAAAAAAAAAAAAMAAMAAAAAAAAAAAALAAIAAAAAAAAAAAAKAAIAAQAAAAAAAAAJAAIAAAAAAAAAAAAMAAIAAQAAAAAAAAANAAIAAAAAAAAAAAAOAAIAAAAAAAAAAAAPAAIAAAAAAAAAAAANAAMAAAAAAAAAAAAOAAMAAAAAAAAAAAAPAAMAAAAAAAAAAAAMAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAAPAAQAAAAAAAAAAAAMAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAOAAUAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAOAAYAAAAAAAAAAAANAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAOAAcAAAAAAAAAAAANAAcAAAAAAAAAAAAMAAcAAQAAAAAAAAALAAcAAQAAAAAAAAAKAAcAAQAAAAAAAAAKAAYAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAQAAAAAAAAAAAALAAUAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAJAAUAAAAAAAAAAAAJAAQAAAAAAAAAAAAKAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAADAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAADAAYAAAAAAAAAAAACAAcAAAAAAAAAAAACAAYAAAAAAAAAAAADAAcAAAAAAAAAAAAFAAUAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAAGAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAcAAQAAAAAAAAAHAAcAAQAAAAAAAAAIAAYAAAAAAAAAAAAIAAcAAQAAAAAAAAAJAAcAAQAAAAAAAAAHAAYAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_47hsf")
 
+[node name="Button" parent="." instance=ExtResource("7_n6awe")]
+position = Vector2(295, 143)
+
 [node name="Player" parent="." instance=ExtResource("3_0jsj2")]
-position = Vector2(158, 470)
+position = Vector2(159, 469)
 
 [node name="Goal" parent="." instance=ExtResource("4_47hsf")]
 position = Vector2(1002, 138)
 
 [node name="Enemy1" parent="." instance=ExtResource("5_n6awe")]
-position = Vector2(481, 113)
+position = Vector2(480, 106)
 
 [node name="Enemy2" parent="." instance=ExtResource("5_n6awe")]
-position = Vector2(611, 111)
+position = Vector2(736, 109)
 
 [node name="Enemy3" parent="." instance=ExtResource("5_n6awe")]
-position = Vector2(737, 112)
+visible = false
+position = Vector2(607, 109)
 
 [node name="LevelTimer" type="Timer" parent="."]
 wait_time = 2.0
-autostart = true
 
+[node name="porte1" type="StaticBody2D" parent="."]
+visible = false
+collision_layer = 0
+physics_material_override = SubResource("PhysicsMaterial_n6awe")
+
+[node name="Polygon2D" type="Polygon2D" parent="porte1"]
+position = Vector2(867.049, 211.4)
+scale = Vector2(0.983607, 0.7)
+polygon = PackedVector2Array(-424, -92, -363, -92, -363, -62, -423, -62)
+uv = PackedVector2Array(-467, -94.5, -3, -103.5, -8, 104.5, -468, 92.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="porte1"]
+position = Vector2(480, 157.5)
+shape = SubResource("RectangleShape2D_bd0s0")
+
+[node name="porte2" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(256, 0)
+collision_layer = 0
+physics_material_override = SubResource("PhysicsMaterial_n6awe")
+
+[node name="Polygon2D" type="Polygon2D" parent="porte2"]
+position = Vector2(867.049, 211.4)
+scale = Vector2(0.983607, 0.7)
+polygon = PackedVector2Array(-424, -92, -363, -92, -363, -62, -423, -62)
+uv = PackedVector2Array(-467, -94.5, -3, -103.5, -8, 104.5, -468, 92.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="porte2"]
+position = Vector2(480, 157.5)
+shape = SubResource("RectangleShape2D_bd0s0")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="unpressed" from="Button" to="." method="_on_button_unpressed"]
 [connection signal="hit" from="Enemy1" to="." method="_on_enemy_hit"]
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]

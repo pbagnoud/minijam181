@@ -15,6 +15,10 @@ run/main_scene="uid://ctfyiq4byuseh"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
+[display]
+
+window/vsync/vsync_mode=0
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/vision_cone_2d/plugin.cfg")

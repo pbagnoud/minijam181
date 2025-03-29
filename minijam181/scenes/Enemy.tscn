@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dema5gfnj8ak7"]
+[gd_scene load_steps=6 format=3 uid="uid://dema5gfnj8ak7"]
 
 [ext_resource type="Script" uid="uid://b71kptgidhy8o" path="res://scripts/enemy.gd" id="1_3gvst"]
 [ext_resource type="Texture2D" uid="uid://qpqgwumuhnet" path="res://assets/fox_placeholder.png" id="2_55jtl"]
@@ -19,9 +19,6 @@ animations = [{
 radius = 26.0
 height = 52.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wwv6"]
-size = Vector2(39, 259)
-
 [node name="Enemy" type="AnimatableBody2D"]
 script = ExtResource("1_3gvst")
 
@@ -32,17 +29,8 @@ sprite_frames = SubResource("SpriteFrames_mpr68")
 position = Vector2(-2, -12)
 shape = SubResource("CapsuleShape2D_ft8do")
 
-[node name="EnemyDetectionZone" type="Area2D" parent="."]
-visible = false
-position = Vector2(29, 31)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionZone"]
-position = Vector2(-29.5, 69.5)
-shape = SubResource("RectangleShape2D_5wwv6")
-
 [node name="VisionCone2D" parent="." node_paths=PackedStringArray("write_collision_polygon") instance=ExtResource("3_mpr68")]
 angle_deg = 20
-collision_layer_mask = 1
 write_collision_polygon = NodePath("VisionConeArea2/CollisionPolygon2D")
 
 [node name="VisionConeRenderer2" type="Polygon2D" parent="VisionCone2D"]
@@ -51,5 +39,4 @@ write_collision_polygon = NodePath("VisionConeArea2/CollisionPolygon2D")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisionCone2D/VisionConeArea2"]
 
-[connection signal="body_entered" from="EnemyDetectionZone" to="." method="_on_enemy_detection_zone_body_entered"]
 [connection signal="body_entered" from="VisionCone2D/VisionConeArea2" to="." method="_on_vision_cone_area_2_body_entered"]
