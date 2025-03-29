@@ -46,6 +46,7 @@ func move(dir):
 		rabbits[0][0].position += inputs[dir] * tile_size # Move the first in rabbits
 		rabbits[0][2] = rabbits[0][0].position # Update position in rabbits
 		position = rabbits[0][2] # Move player with first rabbit
+		type = rabbits[0][0].type
 		for i in range(1, len(rabbits)):
 			current_pos = last_pos
 			last_pos = rabbits[i][0].position
