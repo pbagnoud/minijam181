@@ -50,6 +50,6 @@ position = Vector2(802, 427)
 position = Vector2(36, 543)
 
 [node name="Rabbit" parent="." instance=ExtResource("7_nxtc6")]
-position = Vector2(482, 314)
+position = Vector2(480, 413)
 
 [connection signal="hit" from="Enemy" to="." method="_on_enemy_hit"]
