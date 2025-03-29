@@ -21,6 +21,10 @@ func _ready():
 	position += Vector2.ONE * tile_size/2
 	rabbits.append([player, "", position]) # [nom, type, position]
 	
+func _process(delta):
+	if Input.is_action_just_pressed("Switch"):
+		self.switch()	
+
 func _unhandled_input(event):
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
@@ -55,11 +59,13 @@ func pushed(direction):
 	rabbits[0][2] = player.position
 
 func switch():
+	print("Switch")
 	var last_rabbit = rabbits[-1]
 	var first_rabbit = rabbits[0]
 	rabbits[0][1] = last_rabbit[1]
 	rabbits[0][2] = last_rabbit[2]
 	rabbits[-1][1] = first_rabbit[1]
 	rabbits[-1][2] = last_rabbit[2]
+
 	
 	
