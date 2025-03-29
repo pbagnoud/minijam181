@@ -85,5 +85,6 @@ theme = ExtResource("8_q8u5g")
 text = "Go to the next level"
 
 [connection signal="hit" from="Enemy" to="." method="_on_enemy_hit"]
+[connection signal="friend_found" from="Rabbit" to="." method="_on_rabbit_friend_found"]
 [connection signal="goal" from="Goal" to="." method="_on_goal_goal"]
 [connection signal="pressed" from="EndScreen/next_level_button" to="." method="_on_next_level_button_pressed"]
