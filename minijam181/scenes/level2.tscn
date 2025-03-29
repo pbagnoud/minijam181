@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bekxo8rede1c5"]
+[gd_scene load_steps=15 format=4 uid="uid://bekxo8rede1c5"]
 
 [ext_resource type="Texture2D" uid="uid://cvcgmfk8pha3a" path="res://assets/Map assets/wall.png" id="1_if4l3"]
 [ext_resource type="Script" uid="uid://dsivaefij5huf" path="res://scripts/level_2.gd" id="1_yqkch"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bntvnfqnukc0h" path="res://scenes/Player.tscn" id="3_2k3dv"]
 [ext_resource type="PackedScene" uid="uid://uq1dwtg35l21" path="res://scenes/Goal.tscn" id="4_alqfr"]
 [ext_resource type="PackedScene" uid="uid://c4nic6eaf3j7e" path="res://scenes/Rabbit.tscn" id="6_6ep0u"]
+[ext_resource type="PackedScene" uid="uid://dlovau8cwlqb1" path="res://scenes/fan.tscn" id="7_6ep0u"]
+[ext_resource type="PackedScene" uid="uid://cc6gxrptg61ka" path="res://scenes/Button.tscn" id="8_hrcei"]
+[ext_resource type="PackedScene" uid="uid://ceb2dsn4be0a5" path="res://scenes/Poison.tscn" id="9_xa7n4"]
+[ext_resource type="Theme" uid="uid://cimqaqw5ekmms" path="res://assets/Themes/Start_Menu.tres" id="10_bo4dx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2k3dv"]
 texture = ExtResource("1_if4l3")
@@ -23,6 +27,9 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_2k3dv")
 sources/3 = SubResource("TileSetAtlasSource_alqfr")
+
+[sub_resource type="Theme" id="Theme_76toy"]
+default_font_size = 50
 
 [node name="level2" type="Node2D"]
 script = ExtResource("1_yqkch")
@@ -44,9 +51,43 @@ type = 1
 [node name="HintTimer" type="Timer" parent="."]
 wait_time = 15.0
 
-[node name="PopupPanel" type="PopupPanel" parent="."]
-initial_position = 1
-visible = true
+[node name="Fan" parent="." instance=ExtResource("7_6ep0u")]
+position = Vector2(673, 541)
+direction = "Left"
+
+[node name="Button" parent="." instance=ExtResource("8_hrcei")]
+position = Vector2(482, 546)
+
+[node name="Poison" parent="." instance=ExtResource("9_xa7n4")]
+position = Vector2(482, 539)
+
+[node name="DeathScreen" type="ColorRect" parent="."]
+visible = false
+z_index = 2
+offset_right = 1152.0
+offset_bottom = 649.0
+color = Color(0.500391, 0.322749, 0.103923, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DeathScreen"]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 249.0
+offset_right = 762.0
+offset_bottom = 323.0
+theme = SubResource("Theme_76toy")
+text = "You Died =("
+
+[node name="restart_button" type="Button" parent="DeathScreen"]
+z_index = 2
+layout_mode = 0
+offset_left = 331.0
+offset_top = 366.0
+offset_right = 808.0
+offset_bottom = 443.0
+theme = ExtResource("10_bo4dx")
+text = "Restart level"
 
 [connection signal="goal" from="Goal" to="." method="_on_goal_goal"]
 [connection signal="friend_found" from="Rabbit1" to="." method="_on_rabbit_1_friend_found"]
+[connection signal="body_entered" from="Poison" to="." method="_on_poison_body_entered"]
+[connection signal="pressed" from="DeathScreen/restart_button" to="." method="_on_restart_button_pressed"]
