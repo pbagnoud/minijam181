@@ -47,3 +47,6 @@ func add_follower(type):
 	newfollower.position = self.position + Vector2(0,1)*tile_size
 	rabbits.append([newfollower, type, newfollower.position])
 	print(rabbits)
+
+func pushed(direction):
+	pass
