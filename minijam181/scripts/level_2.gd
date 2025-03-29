@@ -20,9 +20,9 @@ func _on_enemy_hit() -> void:
 
 func _on_poison_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		died_of_poison()
-		#if Player.type != 1 :
-		#	died_of_poison()
+		if player.type != 1 :
+			print(player.type)
+			died_of_poison()
 		pass
 			
 func died_of_poison() :
