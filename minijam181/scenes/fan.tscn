@@ -36,7 +36,7 @@ size = Vector2(62, 49)
 [node name="Node2D" type="StaticBody2D"]
 script = ExtResource("1_ib1wi")
 
-[node name="Fans_sprite" type="AnimatedSprite2D" parent="."]
+[node name="FanSprite2" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1.26, 1)
 position = Vector2(7.62939e-06, -5)
 rotation = 4.71239
@@ -44,7 +44,7 @@ scale = Vector2(0.949997, 0.921742)
 sprite_frames = SubResource("SpriteFrames_4wrgw")
 autoplay = "default"
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Fans_sprite"]
+[node name="Glow" type="WorldEnvironment" parent="FanSprite2"]
 environment = SubResource("Environment_b17ye")
 
 [node name="FanSprite" type="Sprite2D" parent="."]
