@@ -1,5 +1,7 @@
 extends Area2D
 
+@onready var ray: RayCast2D = $RayCast2D
+
 var tile_size = 64
 var inputs = {"ui_right": Vector2.RIGHT,
 			"ui_left": Vector2.LEFT,

@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://bntvnfqnukc0h"]
 
-[ext_resource type="Texture2D" uid="uid://dgpkmjknmy4h6" path="res://assets/icon.svg" id="1_p0vlq"]
 [ext_resource type="Script" uid="uid://cyeji3svkdykd" path="res://scripts/player.gd" id="1_v6fml"]
+[ext_resource type="Texture2D" uid="uid://d1ddorwp6i2go" path="res://assets/rabbit_placeholder.png" id="2_v6fml"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v6fml"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_p0vlq")
+"texture": ExtResource("2_v6fml")
 }],
 "loop": true,
 "name": &"default",
@@ -27,3 +27,5 @@ sprite_frames = SubResource("SpriteFrames_v6fml")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_v6fml")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
