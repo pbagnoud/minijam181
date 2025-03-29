@@ -5,3 +5,4 @@ extends StaticBody2D
 
 func change_type(newtype) :
 	follower_sprite.frame = newtype
+	type=newtype

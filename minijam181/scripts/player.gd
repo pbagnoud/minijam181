@@ -5,7 +5,7 @@ extends CharacterBody2D
 var follower = preload("res://scenes/follower.tscn")
 
 var rabbits = []
-var type = ""
+var type = 0
 
 var tile_size = 64
 var inputs = {"ui_right": Vector2.RIGHT,
@@ -46,7 +46,7 @@ func move(dir):
 		rabbits[0][0].position += inputs[dir] * tile_size # Move the first in rabbits
 		rabbits[0][2] = rabbits[0][0].position # Update position in rabbits
 		position = rabbits[0][2] # Move player with first rabbit
-		type = rabbits[0][0].type
+		
 		for i in range(1, len(rabbits)):
 			current_pos = last_pos
 			last_pos = rabbits[i][0].position
@@ -73,6 +73,8 @@ func switch():
 	rabbits.reverse()
 	print(rabbits)
 	position = rabbits[0][2]
+	type = rabbits[0][0].type
+	print(type)
 
 	
 	
