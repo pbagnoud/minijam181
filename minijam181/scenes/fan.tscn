@@ -1,7 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlovau8cwlqb1"]
+[gd_scene load_steps=8 format=3 uid="uid://bwxwvxm0ughfa"]
 
-[ext_resource type="Script" uid="uid://iiwdv43ys6ig" path="res://scripts/fan.gd" id="1_ib1wi"]
+[ext_resource type="Script" path="res://scripts/fan.gd" id="1_ib1wi"]
+[ext_resource type="Texture2D" uid="uid://31x4r26ah85n" path="res://assets/Fan 1.png" id="2_05mpp"]
 [ext_resource type="Texture2D" uid="uid://ds7d5lyencg44" path="res://assets/button_unpressed_placeholder.png" id="2_ib1wi"]
+[ext_resource type="Texture2D" uid="uid://bbul4wnj57jue" path="res://assets/Fan 2.png" id="3_01qld"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4wrgw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_05mpp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_01qld")
+}],
+"loop": true,
+"name": &"default",
+"speed": 19.0
+}]
+
+[sub_resource type="Environment" id="Environment_b17ye"]
+background_mode = 3
+ssao_enabled = true
+glow_enabled = true
+glow_intensity = 1.22
+glow_strength = 0.7
+glow_bloom = 0.22
+glow_blend_mode = 1
+glow_hdr_threshold = 0.39
+glow_map_strength = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05mpp"]
 size = Vector2(62, 49)
@@ -9,7 +36,19 @@ size = Vector2(62, 49)
 [node name="Node2D" type="StaticBody2D"]
 script = ExtResource("1_ib1wi")
 
+[node name="Fans_sprite" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1.26, 1)
+position = Vector2(7.62939e-06, -5)
+rotation = 4.71239
+scale = Vector2(0.949997, 0.921742)
+sprite_frames = SubResource("SpriteFrames_4wrgw")
+autoplay = "default"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Fans_sprite"]
+environment = SubResource("Environment_b17ye")
+
 [node name="FanSprite" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_ib1wi")
 
 [node name="FanCollision" type="CollisionShape2D" parent="."]
