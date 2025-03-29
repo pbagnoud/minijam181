@@ -56,12 +56,14 @@ position = Vector2(36, 543)
 
 [node name="Rabbit" parent="." instance=ExtResource("7_nxtc6")]
 position = Vector2(480, 413)
+type = 1
 
 [node name="Goal" parent="." instance=ExtResource("6_c01mt")]
 position = Vector2(1061, 161)
 
 [node name="EndScreen" type="ColorRect" parent="."]
 visible = false
+z_index = 2
 offset_right = 1152.0
 offset_bottom = 649.0
 color = Color(0.500391, 0.322749, 0.103923, 1)

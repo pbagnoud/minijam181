@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4nic6eaf3j7e"]
+[gd_scene load_steps=6 format=3 uid="uid://c4nic6eaf3j7e"]
 
 [ext_resource type="Script" uid="uid://cy1b147eglx2n" path="res://scripts/rabbit.gd" id="1_ckagh"]
 [ext_resource type="Texture2D" uid="uid://d1ddorwp6i2go" path="res://assets/rabbit_placeholder.png" id="2_rggft"]
+[ext_resource type="Texture2D" uid="uid://bcmwwbiltt5lh" path="res://assets/rabbit_green_placeholder.png" id="3_hh6s3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hh6s3"]
 radius = 33.0
@@ -12,6 +13,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_rggft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hh6s3")
 }],
 "loop": true,
 "name": &"default",
@@ -24,7 +28,7 @@ script = ExtResource("1_ckagh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_hh6s3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="RabbitSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w2pdp")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

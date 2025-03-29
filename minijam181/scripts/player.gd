@@ -42,8 +42,10 @@ func move(dir):
 			rabbits[i][0].position = current_pos
 
 func add_follower(type):
+	print(type)
 	var newfollower = follower.instantiate()
 	get_parent().add_child(newfollower)
 	newfollower.position = self.position + Vector2(0,1)*tile_size
+	newfollower.change_type(type)
 	rabbits.append([newfollower, type, newfollower.position])
 	print(rabbits)
